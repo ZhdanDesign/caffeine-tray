@@ -10,6 +10,14 @@ A small macOS menu bar app that keeps your Mac awake for a selected amount of ti
 
 `Caffeine` does not replace `caffeinate`. It is a lightweight menu bar user interface for it: an icon, quick timers, custom duration, status, and remaining time.
 
+## Screenshots
+
+![Caffeine menu in the macOS menu bar](docs/images/menu.png)
+
+![Custom timer duration dialog](docs/images/custom-duration.png)
+
+![Caffeine app icon](docs/images/coffee-preview.jpg)
+
 ## Features
 
 - Runs from the macOS menu bar.

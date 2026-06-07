@@ -10,6 +10,14 @@
 
 `Caffeine` — это не замена `caffeinate`, а простой пользовательский интерфейс для нее: иконка в menu bar, быстрые таймеры, свое значение, статус и оставшееся время.
 
+## Скриншоты
+
+![Меню Caffeine в строке меню macOS](docs/images/menu.png)
+
+![Диалог своего значения таймера](docs/images/custom-duration.png)
+
+![Иконка приложения Caffeine](docs/images/coffee-preview.jpg)
+
 ## Возможности
 
 - Работает из строки меню macOS.
