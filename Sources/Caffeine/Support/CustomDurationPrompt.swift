@@ -2,16 +2,16 @@ import AppKit
 import Foundation
 
 enum CustomDurationPrompt {
-    static func requestMinutes() -> Int? {
+    static func requestMinutes(strings: AppStrings) -> Int? {
         let alert = NSAlert()
-        alert.messageText = "Свое значение"
-        alert.informativeText = "Введите длительность в минутах."
+        alert.messageText = strings.customDurationTitle
+        alert.informativeText = strings.customDurationMessage
         alert.alertStyle = .informational
-        alert.addButton(withTitle: "Запустить")
-        alert.addButton(withTitle: "Отмена")
+        alert.addButton(withTitle: strings.start)
+        alert.addButton(withTitle: strings.cancel)
 
         let field = NSTextField(frame: NSRect(x: 0, y: 0, width: 180, height: 24))
-        field.placeholderString = "Например, 45"
+        field.placeholderString = strings.customDurationPlaceholder
         field.stringValue = ""
         alert.accessoryView = field
 

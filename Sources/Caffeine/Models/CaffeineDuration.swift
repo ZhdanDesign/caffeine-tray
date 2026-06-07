@@ -2,19 +2,19 @@ import Foundation
 
 struct CaffeineDuration: Identifiable, Equatable {
     let id: TimeInterval
-    let title: String
+    let minutes: Int
     let seconds: TimeInterval
 
-    init(title: String, minutes: Int) {
-        self.title = title
+    init(minutes: Int) {
+        self.minutes = minutes
         self.seconds = TimeInterval(minutes * 60)
         self.id = self.seconds
     }
 
     static let presets: [CaffeineDuration] = [
-        CaffeineDuration(title: "30 минут", minutes: 30),
-        CaffeineDuration(title: "1 час", minutes: 60),
-        CaffeineDuration(title: "2 часа", minutes: 120),
-        CaffeineDuration(title: "3 часа", minutes: 180)
+        CaffeineDuration(minutes: 30),
+        CaffeineDuration(minutes: 60),
+        CaffeineDuration(minutes: 120),
+        CaffeineDuration(minutes: 180)
     ]
 }

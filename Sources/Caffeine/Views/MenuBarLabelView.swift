@@ -7,7 +7,7 @@ struct MenuBarLabelView: View {
         HStack(spacing: 4) {
             Image(systemName: controller.isActive ? "cup.and.saucer.fill" : "cup.and.saucer")
             if controller.isActive {
-                Text(DurationFormatter.short(controller.remainingSeconds))
+                Text(DurationFormatter.short(controller.remainingSeconds, language: controller.language))
             }
         }
         .foregroundStyle(controller.isActive ? .primary : .secondary)

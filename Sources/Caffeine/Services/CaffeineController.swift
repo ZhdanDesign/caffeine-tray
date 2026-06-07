@@ -7,14 +7,26 @@ final class CaffeineController: ObservableObject {
     @Published private(set) var errorMessage: String?
     @Published private(set) var loginItemEnabled = false
     @Published private(set) var loginItemNeedsApproval = false
+    @Published private(set) var languageMode: LanguageMode
+    @Published private(set) var language: AppLanguage
+
+    var strings: AppStrings {
+        AppStrings(language: language)
+    }
 
     private let service = CaffeinateService()
     private let loginItemService = LoginItemService()
+    private let languageModeKey = "languageMode"
     private var endDate: Date?
     private var timer: AnyCancellable?
     private var terminateObserver: NSObjectProtocol?
 
     init() {
+        let savedMode = UserDefaults.standard.string(forKey: languageModeKey)
+            .flatMap(LanguageMode.init(rawValue:)) ?? .system
+        languageMode = savedMode
+        language = savedMode.resolvedLanguage
+
         terminateObserver = NotificationCenter.default.addObserver(
             forName: .appWillTerminateCaffeine,
             object: nil,
@@ -44,7 +56,7 @@ final class CaffeineController: ObservableObject {
             updateState()
         } catch {
             deactivate()
-            errorMessage = "Не удалось запустить caffeinate"
+            errorMessage = strings.caffeinateStartError
         }
     }
 
@@ -68,14 +80,19 @@ final class CaffeineController: ObservableObject {
             errorMessage = nil
         } catch {
             refreshLoginItemState()
-            errorMessage = enabled
-                ? "Не удалось включить автозапуск"
-                : "Не удалось отключить автозапуск"
+            errorMessage = enabled ? strings.loginItemEnableError : strings.loginItemDisableError
         }
     }
 
     func openLoginItemsSettings() {
         loginItemService.openSystemSettings()
+    }
+
+    func setLanguageMode(_ mode: LanguageMode) {
+        languageMode = mode
+        language = mode.resolvedLanguage
+        UserDefaults.standard.set(mode.rawValue, forKey: languageModeKey)
+        errorMessage = nil
     }
 
     private func startTimer() {
