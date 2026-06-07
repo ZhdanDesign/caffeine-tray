@@ -1,47 +1,63 @@
 # Caffeine
 
-A small macOS menu bar app that keeps your Mac awake for a selected amount of time.
+Небольшое приложение для macOS menu bar, которое помогает держать Mac бодрствующим выбранное время.
 
-## Features
+[English README](README.en.md)
 
-- Runs from the macOS menu bar.
-- Starts and stops the system `caffeinate` command.
-- Quick timers: 30 minutes, 1 hour, 2 hours, and 3 hours.
-- Custom duration in minutes.
-- Shows active or inactive state in the menu bar icon.
-- Shows remaining time while active.
-- Can register itself as a Login Item to start when you sign in.
-- Uses a bundled coffee cup app icon.
+## Что это
 
-## Requirements
+`caffeinate` — это отдельная системная CLI-утилита macOS. Она уже есть в системе и умеет временно запрещать сон Mac.
 
-- macOS 13 or later.
+`Caffeine` — это не замена `caffeinate`, а простой пользовательский интерфейс для нее: иконка в menu bar, быстрые таймеры, свое значение, статус и оставшееся время.
+
+## Возможности
+
+- Работает из строки меню macOS.
+- Запускает и останавливает системную команду `caffeinate`.
+- Быстрые таймеры: 30 минут, 1 час, 2 часа и 3 часа.
+- Свое значение в минутах.
+- Показывает активное или неактивное состояние через иконку.
+- Показывает оставшееся время, пока режим активен.
+- Может добавлять себя в автозапуск при входе в macOS.
+- Использует иконку с чашкой кофе.
+
+## Скачать готовое приложение
+
+Готовую сборку можно скачать из раздела Releases:
+
+[Download Caffeine.app](https://github.com/ZhdanDesign/caffeine-tray/releases/latest/download/Caffeine.zip)
+
+После скачивания распакуйте архив и запустите `Caffeine.app`.
+
+## Требования для сборки из исходников
+
+- macOS 13 или новее.
 - Xcode Command Line Tools.
-- ImageMagick, used by the build script to generate the `.icns` app icon.
+- ImageMagick, чтобы сборочный скрипт мог создать `.icns` иконку приложения.
 
-Install ImageMagick with Homebrew:
+Установка ImageMagick через Homebrew:
 
 ```bash
 brew install imagemagick
 ```
 
-## Build And Run
+## Сборка и запуск
 
 ```bash
 ./script/build_and_run.sh
 ```
 
-The script builds the SwiftPM executable, creates `dist/Caffeine.app`, generates the app icon from `Resources/coffe-icon.png`, and launches the app bundle.
+Скрипт собирает SwiftPM executable, создает `dist/Caffeine.app`, генерирует иконку из `Resources/coffe-icon.png` и запускает app bundle.
 
-To verify that the app launches:
+Проверить, что приложение запускается:
 
 ```bash
 ./script/build_and_run.sh --verify
 ```
 
-## Usage
+## Использование
 
-Open the menu bar icon and choose a timer:
+Откройте иконку в menu bar и выберите таймер:
 
 - `30 минут`
 - `1 час`
@@ -49,8 +65,8 @@ Open the menu bar icon and choose a timer:
 - `3 часа`
 - `Свое значение...`
 
-Use `Деактивировать` to stop the active `caffeinate` process.
+Чтобы остановить активный режим, нажмите `Деактивировать`.
 
-## License
+## Лицензия
 
 MIT
