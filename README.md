@@ -12,11 +12,7 @@
 
 ## Скриншоты
 
-<p>
-  <img src="docs/images/menu-ru.png" alt="Меню Caffeine в строке меню macOS" width="240">
-  <img src="docs/images/custom-duration-ru.png" alt="Диалог своего значения таймера" width="280">
-  <img src="docs/images/coffee-preview.jpg" alt="Иконка приложения Caffeine" width="220">
-</p>
+![Caffeine: русский и английский интерфейс](docs/images/overview.jpg)
 
 ## Возможности
 

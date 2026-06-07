@@ -12,11 +12,7 @@ A small macOS menu bar app that keeps your Mac awake for a selected amount of ti
 
 ## Screenshots
 
-<p>
-  <img src="docs/images/menu-en.png" alt="Caffeine menu in the macOS menu bar" width="240">
-  <img src="docs/images/custom-duration-en.png" alt="Custom timer duration dialog" width="280">
-  <img src="docs/images/coffee-preview.jpg" alt="Caffeine app icon" width="220">
-</p>
+![Caffeine: Russian and English interface](docs/images/overview.jpg)
 
 ## Features
 
